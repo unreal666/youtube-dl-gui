@@ -60,6 +60,7 @@ except ModuleNotFoundError:
     sys.path.insert(0, str(HERE))
     import youtube_dl_gui
 
+
 PYINSTALLER = len(sys.argv) >= 2 and sys.argv[1] == "pyinstaller"
 
 try:
@@ -69,7 +70,7 @@ try:
         # noinspection PyUnresolvedReferences
         from PyInstaller.utils.win32.versioninfo import (
             FixedFileInfo,
-            SetVersion,
+            write_version_info_to_executable,
             StringFileInfo,
             StringStruct,
             StringTable,
@@ -259,7 +260,7 @@ class BuildPyinstallerBin(Command):
         )
 
         if version:
-            SetVersion("./dist/yt-dlg.exe", version)
+            write_version_info_to_executable("./dist/yt-dlg.exe", version)
 
 
 cmdclass = {

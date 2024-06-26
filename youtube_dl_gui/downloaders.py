@@ -428,7 +428,7 @@ def extract_data(stdout: str) -> dict[str, str]:
                 data_dictionary["eta"] = stdout_list[7]
 
         # Get playlist info
-        if stdout_list[1] == "Downloading" and stdout_list[2] == "video":
+        if stdout_list[1] == "Downloading" and stdout_list[2] in ['video', 'item']:
             data_dictionary["playlist_index"] = stdout_list[3]
             data_dictionary["playlist_size"] = stdout_list[5]
 

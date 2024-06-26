@@ -107,6 +107,7 @@ class OptionsParser:
             OptionHolder("nomtime", "--no-mtime", False),
             OptionHolder("embed_thumbnail", "--embed-thumbnail", False),
             OptionHolder("add_metadata", "--add-metadata", False),
+            OptionHolder("ffmpeg_location", "--ffmpeg-location", ""),
         ]
 
     def parse(self, options_dictionary: dict[str, Any]) -> list[str]:

@@ -907,6 +907,8 @@ class AdvancedTab(TabPanel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.parent: OptionsFrame = args[0]
+        self.workers_number_label = self.crt_statictext(_("Workers number"))
+        self.workers_number_spinctrl = self.crt_spinctrl((1, 99))
         self.retries_label = self.crt_statictext(_("Retries"))
         self.retries_spinctrl = self.crt_spinctrl((1, 999))
 
@@ -928,6 +930,11 @@ class AdvancedTab(TabPanel):
         self.referer_label = self.crt_statictext(_("Referer"))
         self.referer_textctrl = self.crt_textctrl()
 
+        self.ffmpeg_label = self.crt_statictext(_("FFmpeg"))
+
+        self.ffmpeg_location_label = self.crt_statictext(_("FFmpeg location"))
+        self.ffmpeg_location_textctrl = self.crt_textctrl()
+
         self.logging_label = self.crt_statictext(_("Logging"))
 
         self.enable_log_checkbox = self.crt_checkbox(
@@ -946,14 +953,24 @@ class AdvancedTab(TabPanel):
         main_sizer = wx.BoxSizer(wx.HORIZONTAL)
         vertical_sizer = wx.BoxSizer(wx.VERTICAL)
 
+        upper_sizer = wx.GridBagSizer(5, -1)
+
+        # Set up workers_number box
+        workers_number_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        workers_number_sizer.Add(self.workers_number_label, flag=wx.ALIGN_CENTER_VERTICAL)
+        workers_number_sizer.AddSpacer(10)
+        workers_number_sizer.Add(self.workers_number_spinctrl)
+
         # Set up retries box
         retries_sizer = wx.BoxSizer(wx.HORIZONTAL)
         retries_sizer.Add(self.retries_label, flag=wx.ALIGN_CENTER_VERTICAL)
-        retries_sizer.AddSpacer(20)
+        retries_sizer.AddSpacer(10)
         retries_sizer.Add(self.retries_spinctrl)
-        vertical_sizer.Add(
-            retries_sizer, flag=wx.ALIGN_RIGHT | wx.TOP | wx.RIGHT, border=5
-        )
+
+        upper_sizer.Add(workers_number_sizer, (0, 0))
+        upper_sizer.Add(retries_sizer, (0, 2))
+        upper_sizer.AddGrowableCol(1)
+        vertical_sizer.Add(upper_sizer, flag=wx.EXPAND | wx.ALL, border=5)
 
         # Set up authentication box
         vertical_sizer.Add(self.auth_label, flag=wx.TOP, border=10)
@@ -986,6 +1003,16 @@ class AdvancedTab(TabPanel):
 
         network_sizer.AddGrowableCol(1)
         vertical_sizer.Add(network_sizer, flag=wx.EXPAND | wx.ALL, border=5)
+
+        # Set up ffmpeg box
+        vertical_sizer.Add(self.ffmpeg_label, flag=wx.TOP, border=10)
+        ffmpeg_sizer = wx.GridBagSizer(5, -1)
+
+        ffmpeg_sizer.Add(self.ffmpeg_location_label, (0, 0), flag=wx.ALIGN_CENTER_VERTICAL)
+        ffmpeg_sizer.Add(self.ffmpeg_location_textctrl, (0, 2))
+
+        ffmpeg_sizer.AddGrowableCol(1)
+        vertical_sizer.Add(ffmpeg_sizer, flag=wx.EXPAND | wx.ALL, border=5)
 
         # Set up logging box
         vertical_sizer.Add(self.logging_label, flag=wx.TOP, border=10)
@@ -1028,6 +1055,7 @@ class AdvancedTab(TabPanel):
             self.log_manager.clear()
 
     def load_options(self) -> None:
+        self.workers_number_spinctrl.SetValue(self.opt_manager.options["workers_number"])
         self.retries_spinctrl.SetValue(self.opt_manager.options["retries"])
         self.username_textctrl.SetValue(self.opt_manager.options["username"])
         self.password_textctrl.SetValue(self.opt_manager.options["password"])
@@ -1035,9 +1063,11 @@ class AdvancedTab(TabPanel):
         self.proxy_textctrl.SetValue(self.opt_manager.options["proxy"])
         self.useragent_textctrl.SetValue(self.opt_manager.options["user_agent"])
         self.referer_textctrl.SetValue(self.opt_manager.options["referer"])
+        self.ffmpeg_location_textctrl.SetValue(self.opt_manager.options["ffmpeg_location"])
         self.enable_log_checkbox.SetValue(self.opt_manager.options["enable_log"])
 
     def save_options(self) -> None:
+        self.opt_manager.options["workers_number"] = self.workers_number_spinctrl.GetValue()
         self.opt_manager.options["retries"] = self.retries_spinctrl.GetValue()
         self.opt_manager.options["username"] = self.username_textctrl.GetValue()
         self.opt_manager.options["password"] = self.password_textctrl.GetValue()
@@ -1045,6 +1075,7 @@ class AdvancedTab(TabPanel):
         self.opt_manager.options["proxy"] = self.proxy_textctrl.GetValue()
         self.opt_manager.options["user_agent"] = self.useragent_textctrl.GetValue()
         self.opt_manager.options["referer"] = self.referer_textctrl.GetValue()
+        self.opt_manager.options["ffmpeg_location"] = self.ffmpeg_location_textctrl.GetValue()
         self.opt_manager.options["enable_log"] = self.enable_log_checkbox.GetValue()
 
 

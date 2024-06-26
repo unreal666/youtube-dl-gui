@@ -212,6 +212,9 @@ class OptionsManager:
 
             native_hls (bool): When True youtube-dl will use the native HLS implementation.
 
+            ffmpeg_location (str): Location of the ffmpeg binary; either the path
+                to the binary or its containing directory.
+
             # TODO:
             ffmpeg_hls (bool): (--hls-prefer-ffmpeg) Use ffmpeg insted of the native HLS
                 downloader. (IMPLEMENT with radio buttons)
@@ -309,6 +312,7 @@ class OptionsManager:
             "embed_thumbnail": False,
             "add_metadata": False,
             "disable_update": False,
+            "ffmpeg_location": "",
         }
 
         # Set the youtubedl_path again if the disable_update option is set

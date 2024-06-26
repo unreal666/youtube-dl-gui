@@ -140,6 +140,11 @@ class OptionsManager:
             write_thumbnail (bool): If True youtube-dl will write
                 thumbnail image to disk.
 
+            no_overwrites (bool): If True youtube-dl will not overwrite any files.
+
+            no_check_certificates (bool): If True youtube-dl will suppress
+                HTTPS certificate validation.
+
             retries (int): Number of youtube-dl retries.
 
             user_agent (str): Specify a custom user agent for youtube-dl.
@@ -281,6 +286,8 @@ class OptionsManager:
             "write_description": False,
             "write_info": False,
             "write_thumbnail": False,
+            "no_overwrites": False,
+            "no_check_certificates": False,
             "retries": 10,
             "user_agent": "",
             "referer": "",

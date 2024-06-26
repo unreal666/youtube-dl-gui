@@ -737,6 +737,11 @@ class DownloadsTab(TabPanel):
         self.embed_subs_checkbox = self.crt_checkbox(
             _("Embed subtitles into video file (mp4 ONLY)")
         )
+        self.write_desc_checkbox = self.crt_checkbox(_("Write description to file"))
+        self.write_info_checkbox = self.crt_checkbox(_("Write info to (.json) file"))
+        self.write_thumbnail_checkbox = self.crt_checkbox(_("Write thumbnail to disk"))
+        self.no_overwrites_checkbox = self.crt_checkbox(_("Do not overwrite any file"))
+        self.no_check_certificates_checkbox = self.crt_checkbox(_("Suppress HTTPS certificate validation"))
 
         self.playlist_box = self.crt_staticbox(_("Playlist"))
 
@@ -784,6 +789,14 @@ class DownloadsTab(TabPanel):
         plist_and_fsize_sizer.Add(self._build_filesize_sizer(), 1, wx.EXPAND)
 
         vertical_sizer.Add(plist_and_fsize_sizer, 1, wx.EXPAND | wx.TOP, border=5)
+
+        lower_sizer = wx.GridBagSizer(5, -1)
+        lower_sizer.Add(self.write_desc_checkbox, (0, 0), flag=wx.RIGHT, border=15)
+        lower_sizer.Add(self.write_info_checkbox, (1, 0))
+        lower_sizer.Add(self.write_thumbnail_checkbox, (2, 0))
+        lower_sizer.Add(self.no_overwrites_checkbox, (0, 1))
+        lower_sizer.Add(self.no_check_certificates_checkbox, (1, 1))
+        vertical_sizer.Add(lower_sizer, 1, wx.EXPAND | wx.TOP, border=5)
 
         main_sizer.Add(vertical_sizer, 1, wx.EXPAND | wx.ALL, border=5)
         self.SetSizer(main_sizer)
@@ -848,6 +861,11 @@ class DownloadsTab(TabPanel):
             self.SUBS_LANG[self.opt_manager.options["subs_lang"]]
         )
         self.embed_subs_checkbox.SetValue(self.opt_manager.options["embed_subs"])
+        self.write_desc_checkbox.SetValue(self.opt_manager.options['write_description'])
+        self.write_info_checkbox.SetValue(self.opt_manager.options['write_info'])
+        self.write_thumbnail_checkbox.SetValue(self.opt_manager.options['write_thumbnail'])
+        self.no_overwrites_checkbox.SetValue(self.opt_manager.options['no_overwrites'])
+        self.no_check_certificates_checkbox.SetValue(self.opt_manager.options['no_check_certificates'])
         self.playlist_start_spinctrl.SetValue(
             self.opt_manager.options["playlist_start"]
         )
@@ -882,6 +900,11 @@ class DownloadsTab(TabPanel):
             self.subtitles_lang_listbox.GetStringSelection(), self.SUBS_LANG, "en"
         )
         self.opt_manager.options["embed_subs"] = self.embed_subs_checkbox.GetValue()
+        self.opt_manager.options['write_description'] = self.write_desc_checkbox.GetValue()
+        self.opt_manager.options['write_info'] = self.write_info_checkbox.GetValue()
+        self.opt_manager.options['write_thumbnail'] = self.write_thumbnail_checkbox.GetValue()
+        self.opt_manager.options['no_overwrites'] = self.no_overwrites_checkbox.GetValue()
+        self.opt_manager.options['no_check_certificates'] = self.no_check_certificates_checkbox.GetValue()
         self.opt_manager.options[
             "playlist_start"
         ] = self.playlist_start_spinctrl.GetValue()

@@ -85,6 +85,8 @@ class OptionsParser:
             OptionHolder("write_description", "--write-description", False),
             OptionHolder("write_info", "--write-info-json", False),
             OptionHolder("write_thumbnail", "--write-thumbnail", False),
+            OptionHolder("no_overwrites", "-w", False),
+            OptionHolder("no_check_certificates", "--no-check-certificates", False),
             OptionHolder("min_filesize", "--min-filesize", 0),
             OptionHolder("max_filesize", "--max-filesize", 0),
             OptionHolder("write_all_subs", "--all-subs", False),

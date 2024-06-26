@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """yt-dlg __main__ file.
 
 __main__ file is a python 'executable' file which calls the youtube_dl_gui.app

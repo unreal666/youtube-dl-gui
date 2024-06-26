@@ -117,9 +117,9 @@ class YoutubeDLDownloader:
     OK = 0
     WARNING = 1
     ERROR = 2
-    FILESIZE_ABORT = 3
-    ALREADY = 4
-    STOPPED = 5
+    FILESIZE_ABORT = 4
+    ALREADY = 8
+    STOPPED = 16
 
     def __init__(
         self,
@@ -223,10 +223,7 @@ class YoutubeDLDownloader:
         self._stderr_reader.join()
 
     def _set_returncode(self, code) -> None:
-        """Set self._return_code only if the hierarchy of the given code is
-        higher than the current self._return_code."""
-        if code >= self._return_code:
-            self._return_code = code
+        self._return_code |= code
 
     @staticmethod
     def _is_warning(stderr: str) -> bool:
@@ -242,18 +239,22 @@ class YoutubeDLDownloader:
             "eta": "",
         }
 
+        def set_status(data_dictionary, status) -> None:
+            data_dictionary["status"] += not data_dictionary["status"] and status or f" / {status}"
+
         if self._return_code == self.OK:
             data_dictionary["status"] = "Finished"
-        elif self._return_code == self.ERROR:
-            data_dictionary["status"] = "Error"
         elif self._return_code == self.WARNING:
-            data_dictionary["status"] = "Warning"
-        elif self._return_code == self.STOPPED:
-            data_dictionary["status"] = "Stopped"
-        elif self._return_code == self.ALREADY:
-            data_dictionary["status"] = "Already Downloaded"
+            set_status(data_dictionary, "Warning")
         else:
-            data_dictionary["status"] = "Filesize Abort"
+            if self._return_code & self.ERROR:
+                set_status(data_dictionary, "Error")
+            if self._return_code & self.STOPPED:
+                set_status(data_dictionary, "Stopped")
+            if self._return_code & self.ALREADY:
+                set_status(data_dictionary, "Already Downloaded")
+            if self._return_code & self.FILESIZE_ABORT:
+                set_status(data_dictionary, "Filesize Abort")
 
         self._hook_data(data_dictionary)
 

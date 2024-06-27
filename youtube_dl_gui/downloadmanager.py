@@ -205,13 +205,13 @@ class DownloadItem:
             self._set_stage(stats_dict["status"])
 
     def _set_stage(self, status: str) -> None:
-        if status in self.ACTIVE_STAGES:
+        if not status: return
+
+        if any(st in status for st in self.ACTIVE_STAGES):
             self._stage = self.STAGES[1]
-
-        if status in self.COMPLETED_STAGES:
+        elif any(st in status for st in self.COMPLETED_STAGES):
             self._stage = self.STAGES[3]
-
-        if status in self.ERROR_STAGES:
+        elif any(st in status for st in self.ERROR_STAGES):
             self._stage = self.STAGES[4]
 
     def __eq__(self, other: object) -> bool:

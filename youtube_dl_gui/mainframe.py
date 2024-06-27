@@ -309,7 +309,7 @@ class MainFrame(wx.Frame):
             "percent": (3, self.PERCENT_LABEL, 80, False),
             "eta": (4, self.ETA_LABEL, 90, False),
             "speed": (5, self.SPEED_LABEL, 90, False),
-            "status": (6, self.STATUS_LABEL, 90, False),
+            "status": (6, self.STATUS_LABEL, 200, False),
         }
 
         self.opt_manager = opt_manager
@@ -1137,7 +1137,7 @@ class MainFrame(wx.Frame):
         mid_sizer.AddSpacer(3)
         mid_sizer.Add(self._path_combobox, 2, wx.ALIGN_CENTER_VERTICAL)
         mid_sizer.AddSpacer(5)
-        mid_sizer.Add(self._buttons["savepath"], flag=wx.ALIGN_CENTER_VERTICAL)
+        mid_sizer.Add(self._buttons["savepath"], flag=wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, border=30)
         mid_sizer.AddStretchSpacer(1)
         mid_sizer.Add(self._videoformat_combobox, 0, wx.ALIGN_CENTER_VERTICAL)
         mid_sizer.AddSpacer(5)

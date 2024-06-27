@@ -180,6 +180,8 @@ class YoutubeDLDownloader:
         while not self._stderr_queue.empty():
             stderr = str(self._stderr_queue.get_nowait()).rstrip()
 
+            if self._is_unnecessary_warning(stderr): continue
+
             self._log(stderr)
 
             if self._is_warning(stderr):
@@ -230,6 +232,17 @@ class YoutubeDLDownloader:
         warning_error = stderr.split(":")[0]
         warning_error = warning_error.strip()
         return warning_error in ["WARNING", "ERROR"]
+
+    @staticmethod
+    def _is_unnecessary_warning(stderr: str) -> bool:
+        return (
+                'Deprecated Feature: Passing ' in stderr
+                or 'FutureWarning: ' in stderr
+                or 'Install PhantomJS' in stderr
+                or '; player =' in stderr
+                or 'WARNING: [youtube] Preferring ' in stderr
+                or 'WARNING: [youtube:tab] Preferring ' in stderr
+                )
 
     def _last_data_hook(self) -> None:
         """Set the last data information based on the return code."""

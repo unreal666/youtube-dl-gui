@@ -179,6 +179,9 @@ class OptionsParser:
                 value = options_dict[option.name]
 
                 if value != option.default_value:
+                    if isinstance(value, str) and not value.strip():
+                        continue
+
                     if isinstance(option.flag, list):
                         options_list.extend(option.flag)
                     else:

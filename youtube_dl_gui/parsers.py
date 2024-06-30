@@ -15,7 +15,7 @@ class OptionHolder:
             from the optionsmanager.OptionsManager class.
             See optionsmanager.OptionsManager load_default() method.
 
-        flag (str): The option command line switch.
+        flag (str | list): The option command line switch.
             See https://github.com/ytdl-org/youtube-dl/#options
 
         default_value (Any): The option default value. Must be the same type
@@ -32,7 +32,7 @@ class OptionHolder:
     def __init__(
         self,
         name: str,
-        flag: str,
+        flag: str | list[str],
         default_value: str | int | bool,
         requirements: list[str] | None = None,
     ):
@@ -175,7 +175,10 @@ class OptionsParser:
                 value = options_dict[option.name]
 
                 if value != option.default_value:
-                    options_list.append(option.flag)
+                    if isinstance(option.flag, list):
+                        options_list.extend(option.flag)
+                    else:
+                        options_list.append(option.flag)
 
                     if not option.is_boolean():
                         options_list.append(str(value))

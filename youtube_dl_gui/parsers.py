@@ -109,6 +109,10 @@ class OptionsParser:
             OptionHolder("nomtime", "--no-mtime", False),
             OptionHolder("embed_thumbnail", "--embed-thumbnail", False),
             OptionHolder("add_metadata", "--add-metadata", False),
+            OptionHolder("not_add_description",
+                         ["--parse-metadata", ":(?P<meta_synopsis>)",
+                          "--parse-metadata", ":(?P<meta_description>)"],
+                         False),
             OptionHolder("ffmpeg_location", "--ffmpeg-location", ""),
         ]
 

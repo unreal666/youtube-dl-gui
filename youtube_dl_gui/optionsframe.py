@@ -597,6 +597,9 @@ class FormatsTab(TabPanel):
             _("Embed thumbnail in audio file")
         )
         self.add_metadata_checkbox = self.crt_checkbox(_("Add metadata to file"))
+        self.not_add_description_checkbox = self.crt_checkbox(
+            _("Don't add description to file")
+        )
 
         self.audio_quality_label = self.crt_statictext(_("Audio quality"))
         self.audio_quality_combobox = self.crt_combobox(
@@ -620,16 +623,14 @@ class FormatsTab(TabPanel):
         )
 
         vertical_sizer.Add(self.post_proc_opts_label, flag=wx.TOP, border=5)
-        vertical_sizer.Add(self.keep_video_checkbox, flag=wx.ALL, border=5)
-        vertical_sizer.Add(
-            self.extract_audio_checkbox, flag=wx.LEFT | wx.RIGHT | wx.BOTTOM, border=5
-        )
-        vertical_sizer.Add(
-            self.embed_thumbnail_checkbox, flag=wx.LEFT | wx.RIGHT | wx.BOTTOM, border=5
-        )
-        vertical_sizer.Add(
-            self.add_metadata_checkbox, flag=wx.LEFT | wx.RIGHT | wx.BOTTOM, border=5
-        )
+
+        post_proc_opts_sizer = wx.GridBagSizer(5, 15)
+        post_proc_opts_sizer.Add(self.keep_video_checkbox, (0, 0))
+        post_proc_opts_sizer.Add(self.extract_audio_checkbox, (1, 0))
+        post_proc_opts_sizer.Add(self.embed_thumbnail_checkbox, (2, 0))
+        post_proc_opts_sizer.Add(self.add_metadata_checkbox, (0, 1))
+        post_proc_opts_sizer.Add(self.not_add_description_checkbox, (1, 1))
+        vertical_sizer.Add(post_proc_opts_sizer, 1, wx.EXPAND | wx.TOP | wx.LEFT, border=5)
 
         audio_quality_sizer = wx.BoxSizer(wx.HORIZONTAL)
         audio_quality_sizer.Add(self.audio_quality_label, flag=wx.ALIGN_CENTER_VERTICAL)
@@ -663,6 +664,7 @@ class FormatsTab(TabPanel):
             self.opt_manager.options["embed_thumbnail"]
         )
         self.add_metadata_checkbox.SetValue(self.opt_manager.options["add_metadata"])
+        self.not_add_description_checkbox.SetValue(self.opt_manager.options["not_add_description"])
 
     def save_options(self):
         checked_video_formats: list[str] = [
@@ -684,6 +686,7 @@ class FormatsTab(TabPanel):
             "embed_thumbnail"
         ] = self.embed_thumbnail_checkbox.GetValue()
         self.opt_manager.options["add_metadata"] = self.add_metadata_checkbox.GetValue()
+        self.opt_manager.options["not_add_description"] = self.not_add_description_checkbox.GetValue()
 
 
 class DownloadsTab(TabPanel):
@@ -790,8 +793,8 @@ class DownloadsTab(TabPanel):
 
         vertical_sizer.Add(plist_and_fsize_sizer, 1, wx.EXPAND | wx.TOP, border=5)
 
-        lower_sizer = wx.GridBagSizer(5, -1)
-        lower_sizer.Add(self.write_desc_checkbox, (0, 0), flag=wx.RIGHT, border=15)
+        lower_sizer = wx.GridBagSizer(5, 15)
+        lower_sizer.Add(self.write_desc_checkbox, (0, 0))
         lower_sizer.Add(self.write_info_checkbox, (1, 0))
         lower_sizer.Add(self.write_thumbnail_checkbox, (2, 0))
         lower_sizer.Add(self.no_overwrites_checkbox, (0, 1))

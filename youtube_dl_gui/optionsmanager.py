@@ -246,6 +246,8 @@ class OptionsManager:
 
             add_metadata (bool): When True will write metadata to file.
 
+            not_add_description (bool): When True description will not be written to file.
+
             disable_update (bool): When True the update process will be disabled.
 
         """
@@ -318,6 +320,7 @@ class OptionsManager:
             "nomtime": False,
             "embed_thumbnail": False,
             "add_metadata": False,
+            "not_add_description": False,
             "disable_update": False,
             "ffmpeg_location": "",
         }

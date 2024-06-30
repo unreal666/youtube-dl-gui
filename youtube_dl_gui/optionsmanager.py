@@ -63,6 +63,8 @@ class OptionsManager:
                 When this options is set to '0' youtube-dl will choose
                 the best video format available for the given URL.
 
+            custom_video_format (str): Custom video format to download.
+
             second_video_format (str): Video format to mix with the first
                 one (-f 18+17).
 
@@ -263,6 +265,7 @@ class OptionsManager:
             ],
             "video_format": "0",
             "second_video_format": "0",
+            "custom_video_format": "",
             "to_audio": False,
             "keep_video": False,
             "audio_format": "",

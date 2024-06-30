@@ -271,7 +271,12 @@ class OptionsParser:
             options_dict (dict): Copy of the original options dictionary.
 
         """
-        if (
+        if options_dict["video_format"] == "custom":
+            if options_dict["custom_video_format"].strip():
+                options_dict["video_format"] = options_dict["custom_video_format"]
+            else:
+                options_dict["video_format"] = "0"
+        elif (
             options_dict["video_format"] != "0"
             and options_dict["second_video_format"] != "0"
         ):

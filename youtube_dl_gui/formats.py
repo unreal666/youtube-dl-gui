@@ -62,6 +62,7 @@ VIDEO_FORMATS: dict[str, str] = {
     "141": "m4a 256k (DASH Audio)",
     "171": "webm 48k (DASH Audio)",
     "172": "webm 256k (DASH Audio)",
+    "custom": "custom",
 }
 
 AUDIO_FORMATS: dict[str, str] = {

@@ -7,9 +7,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: yt-dlg 1.8.6\n"
-"POT-Creation-Date: 2024-06-30 12:27+1000\n"
-"PO-Revision-Date: 2024-06-30 12:29+1000\n"
+"Project-Id-Version: yt-dlg 1.8.7\n"
+"POT-Creation-Date: 2024-06-30 19:04+1000\n"
+"PO-Revision-Date: 2024-06-30 19:15+1000\n"
 "Last-Translator: unreal666\n"
 "Language-Team: Russian (Russia) (https://www.transifex.com/yt-dlg/"
 "teams/154205/ru_RU/)\n"
@@ -77,7 +77,7 @@ msgstr "Настройки"
 msgid "Options"
 msgstr "Опции"
 
-#: mainframe.py:242 optionsframe.py:758
+#: mainframe.py:242 optionsframe.py:766
 msgid "Stop"
 msgstr "Остановить"
 
@@ -125,7 +125,7 @@ msgstr "Перезапустить"
 msgid "Pause"
 msgstr "Пауза"
 
-#: mainframe.py:254 optionsframe.py:756
+#: mainframe.py:254 optionsframe.py:764
 msgid "Start"
 msgstr "Запустить"
 
@@ -363,7 +363,7 @@ msgstr "Дополнительные"
 msgid "Extra"
 msgstr "Особые"
 
-#: optionsframe.py:331 optionsframe.py:727
+#: optionsframe.py:331 optionsframe.py:735
 msgid "Albanian"
 msgstr "Албанский"
 
@@ -379,19 +379,19 @@ msgstr "Кубинский"
 msgid "Czech"
 msgstr "Чешский"
 
-#: optionsframe.py:335 optionsframe.py:717
+#: optionsframe.py:335 optionsframe.py:725
 msgid "German"
 msgstr "Немецкий"
 
-#: optionsframe.py:336 optionsframe.py:517 optionsframe.py:715
+#: optionsframe.py:336 optionsframe.py:517 optionsframe.py:723
 msgid "English"
 msgstr "Английский"
 
-#: optionsframe.py:337 optionsframe.py:716
+#: optionsframe.py:337 optionsframe.py:724
 msgid "French"
 msgstr "Французский"
 
-#: optionsframe.py:338 optionsframe.py:720
+#: optionsframe.py:338 optionsframe.py:728
 msgid "Italian"
 msgstr "Итальянский"
 
@@ -403,15 +403,15 @@ msgstr "Японский"
 msgid "Korean"
 msgstr "Корейский"
 
-#: optionsframe.py:341 optionsframe.py:721
+#: optionsframe.py:341 optionsframe.py:729
 msgid "Polish"
 msgstr "Польский"
 
-#: optionsframe.py:342 optionsframe.py:722
+#: optionsframe.py:342 optionsframe.py:730
 msgid "Portuguese"
 msgstr "Португальский"
 
-#: optionsframe.py:343 optionsframe.py:723
+#: optionsframe.py:343 optionsframe.py:731
 msgid "Russian"
 msgstr "Русский"
 
@@ -419,7 +419,7 @@ msgstr "Русский"
 msgid "Slovak"
 msgstr "Словацкий"
 
-#: optionsframe.py:345 optionsframe.py:724
+#: optionsframe.py:345 optionsframe.py:732
 msgid "Spanish"
 msgstr "Испанский"
 
@@ -475,13 +475,13 @@ msgstr "Выключение по завершении загрузки"
 msgid "SUDO password"
 msgstr "Пароль от вашей учетной записи (администратора)"
 
-#: optionsframe.py:492 optionsframe.py:1067
+#: optionsframe.py:492 optionsframe.py:1075
 #, python-brace-format
 msgid "In order for the changes to take effect please restart {0}"
 msgstr ""
 "Для того, чтобы изменения вступили в силу, пожалуйста, перезапустите {0}"
 
-#: optionsframe.py:495 optionsframe.py:1070
+#: optionsframe.py:495 optionsframe.py:1078
 msgid "Restart"
 msgstr "Перезагрузка"
 
@@ -506,210 +506,214 @@ msgid "Audio formats"
 msgstr "Формат аудио"
 
 #: optionsframe.py:591
+msgid "Custom video format"
+msgstr "Пользов. формат видео"
+
+#: optionsframe.py:594
 msgid "Post-Process options"
 msgstr "Параметры пост-обработки"
 
-#: optionsframe.py:592
+#: optionsframe.py:595
 msgid "Keep original files"
 msgstr "Сохранять исходные файлы"
 
-#: optionsframe.py:594
+#: optionsframe.py:597
 msgid "Extract audio from video file"
 msgstr "Извлечь аудио из видео файла"
 
-#: optionsframe.py:597
+#: optionsframe.py:600
 msgid "Embed thumbnail in audio file"
 msgstr "Добавить эскиз в аудиофайл"
 
-#: optionsframe.py:599
+#: optionsframe.py:602
 msgid "Add metadata to file"
 msgstr "Добавить метаданные в файл"
 
-#: optionsframe.py:601
+#: optionsframe.py:604
 msgid "Don't add description to file"
 msgstr "Не добавлять описание в файл"
 
-#: optionsframe.py:604
+#: optionsframe.py:607
 msgid "Audio quality"
 msgstr "Качество аудио"
 
-#: optionsframe.py:718
+#: optionsframe.py:726
 msgid "Greek"
 msgstr "Греческий"
 
-#: optionsframe.py:719
+#: optionsframe.py:727
 msgid "Hebrew"
 msgstr "Иврит"
 
-#: optionsframe.py:725
+#: optionsframe.py:733
 msgid "Swedish"
 msgstr "Шведский"
 
-#: optionsframe.py:726
+#: optionsframe.py:734
 msgid "Turkish"
 msgstr "Турецкий"
 
-#: optionsframe.py:728
+#: optionsframe.py:736
 msgid "Chinese"
 msgstr "Китайский"
 
-#: optionsframe.py:732
+#: optionsframe.py:740
 msgid "None"
 msgstr "Никакие"
 
-#: optionsframe.py:733
+#: optionsframe.py:741
 msgid "Automatic subtitles (YOUTUBE ONLY)"
 msgstr "Скачать файл авто-субтитров (ТОЛЬКО YOUTUBE)"
 
-#: optionsframe.py:734
+#: optionsframe.py:742
 msgid "All available subtitles"
 msgstr "Скачать все имеющиеся субтитры"
 
-#: optionsframe.py:735
+#: optionsframe.py:743
 msgid "Subtitles by language"
 msgstr "Язык субтитров"
 
-#: optionsframe.py:738
+#: optionsframe.py:746
 msgid "Subtitles"
 msgstr "Субтитры"
 
-#: optionsframe.py:744
+#: optionsframe.py:752
 msgid "Subtitles options"
 msgstr "Параметры субтитров"
 
-#: optionsframe.py:746
+#: optionsframe.py:754
 msgid "Embed subtitles into video file (mp4 ONLY)"
 msgstr "Встроить субтитры в видео (только mp4)"
 
-#: optionsframe.py:748
+#: optionsframe.py:756
 msgid "Write description to file"
 msgstr "Записать описание в файл"
 
-#: optionsframe.py:749
+#: optionsframe.py:757
 msgid "Write info to (.json) file"
 msgstr "Записать информацию в (.json) файл"
 
-#: optionsframe.py:750
+#: optionsframe.py:758
 msgid "Write thumbnail to disk"
 msgstr "Записать миниатюру (thumbnail) на диск"
 
-#: optionsframe.py:751
+#: optionsframe.py:759
 msgid "Do not overwrite any file"
 msgstr "Не перезаписывать никакие файлы"
 
-#: optionsframe.py:752
+#: optionsframe.py:760
 msgid "Suppress HTTPS certificate validation"
 msgstr "Подавление проверки HTTPS-сертификата"
 
-#: optionsframe.py:754
+#: optionsframe.py:762
 msgid "Playlist"
 msgstr "Плейлист"
 
-#: optionsframe.py:760 optionsframe.py:765
+#: optionsframe.py:768 optionsframe.py:773
 msgid "Max"
 msgstr "Максимум"
 
-#: optionsframe.py:763
+#: optionsframe.py:771
 msgid "Filesize"
 msgstr "Размер файла"
 
-#: optionsframe.py:770
+#: optionsframe.py:778
 msgid "Min"
 msgstr "Минимум"
 
-#: optionsframe.py:941
+#: optionsframe.py:949
 msgid "Workers number"
 msgstr "Количество закачек"
 
-#: optionsframe.py:943
+#: optionsframe.py:951
 msgid "Retries"
 msgstr "Количество попыток"
 
-#: optionsframe.py:946
+#: optionsframe.py:954
 msgid "Authentication"
 msgstr "Аутентификация"
 
-#: optionsframe.py:948
+#: optionsframe.py:956
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: optionsframe.py:950
+#: optionsframe.py:958
 msgid "Password"
 msgstr "Пароль"
 
-#: optionsframe.py:952
+#: optionsframe.py:960
 msgid "Video password"
 msgstr "Пароль на видео"
 
-#: optionsframe.py:955
+#: optionsframe.py:963
 msgid "Network"
 msgstr "Сеть"
 
-#: optionsframe.py:957
+#: optionsframe.py:965
 msgid "Proxy"
 msgstr "Прокси"
 
-#: optionsframe.py:959
+#: optionsframe.py:967
 msgid "User agent"
 msgstr "Строка агента пользователя"
 
-#: optionsframe.py:961
+#: optionsframe.py:969
 msgid "Referer"
 msgstr "Реферер"
 
-#: optionsframe.py:964
+#: optionsframe.py:972
 msgid "FFmpeg"
 msgstr ""
 
-#: optionsframe.py:966
+#: optionsframe.py:974
 msgid "FFmpeg location"
 msgstr "Расположение FFmpeg"
 
-#: optionsframe.py:969
+#: optionsframe.py:977
 msgid "Logging"
 msgstr "Логирование"
 
-#: optionsframe.py:972
+#: optionsframe.py:980
 msgid "Enable log"
 msgstr "Вести журнал"
 
-#: optionsframe.py:974
+#: optionsframe.py:982
 msgid "View"
 msgstr "Просмотреть"
 
-#: optionsframe.py:975
+#: optionsframe.py:983
 msgid "Clear"
 msgstr "Очистить"
 
-#: optionsframe.py:1119
+#: optionsframe.py:1127
 msgid "CLI Backend"
 msgstr "CLI-бэкэнд"
 
-#: optionsframe.py:1123
+#: optionsframe.py:1131
 msgid "CLI Backend command line options (e.g. --help)"
 msgstr "Опции командной строки CLI-бэкэнда (например, --help)"
 
-#: optionsframe.py:1127
+#: optionsframe.py:1135
 msgid "Extra options"
 msgstr "Особые параметры"
 
-#: optionsframe.py:1129
+#: optionsframe.py:1137
 msgid "Debug CLI Backend"
 msgstr "Отладка CLI-бэкэнда"
 
-#: optionsframe.py:1130
+#: optionsframe.py:1138
 msgid "Ignore errors"
 msgstr "Игнорировать ошибки"
 
-#: optionsframe.py:1131
+#: optionsframe.py:1139
 msgid "Ignore CLI Backend config"
 msgstr "Игнорировать конфиг CLI-бэкэнда"
 
-#: optionsframe.py:1132
+#: optionsframe.py:1140
 msgid "No mtime"
 msgstr "Не использовать mtime"
 
-#: optionsframe.py:1133
+#: optionsframe.py:1141
 msgid "Prefer native HLS"
 msgstr "Использовать нативный HLS"
 

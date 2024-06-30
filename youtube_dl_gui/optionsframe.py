@@ -588,6 +588,9 @@ class FormatsTab(TabPanel):
             list(AUDIO_FORMATS.values())
         )
 
+        self.custom_video_format_label = self.crt_statictext(_("Custom video format"))
+        self.custom_video_format_textctrl = self.crt_textctrl()
+
         self.post_proc_opts_label = self.crt_statictext(_("Post-Process options"))
         self.keep_video_checkbox = self.crt_checkbox(_("Keep original files"))
         self.extract_audio_checkbox = self.crt_checkbox(
@@ -620,6 +623,19 @@ class FormatsTab(TabPanel):
         vertical_sizer.Add(self.audio_formats_label, flag=wx.TOP, border=5)
         vertical_sizer.Add(
             self.audio_formats_checklistbox, 1, wx.EXPAND | wx.ALL, border=5
+        )
+
+        custom_video_format_sizer = wx.GridBagSizer(5, 10)
+        custom_video_format_sizer.Add(
+            self.custom_video_format_label, (0, 0), flag=wx.ALIGN_CENTER_VERTICAL
+        )
+        custom_video_format_sizer.Add(
+            self.custom_video_format_textctrl, (0, 1), flag=wx.EXPAND
+        )
+        custom_video_format_sizer.AddGrowableCol(1)
+        vertical_sizer.Add(
+            custom_video_format_sizer,
+            flag=wx.EXPAND | wx.TOP | wx.RIGHT | wx.BOTTOM, border=5
         )
 
         vertical_sizer.Add(self.post_proc_opts_label, flag=wx.TOP, border=5)
@@ -660,6 +676,7 @@ class FormatsTab(TabPanel):
             self.AUDIO_QUALITY[self.opt_manager.options["audio_quality"]]
         )
         self.extract_audio_checkbox.SetValue(self.opt_manager.options["to_audio"])
+        self.custom_video_format_textctrl.SetValue(self.opt_manager.options["custom_video_format"])
         self.embed_thumbnail_checkbox.SetValue(
             self.opt_manager.options["embed_thumbnail"]
         )
@@ -682,6 +699,7 @@ class FormatsTab(TabPanel):
             self.audio_quality_combobox.GetValue(), self.AUDIO_QUALITY, "5"
         )
         self.opt_manager.options["to_audio"] = self.extract_audio_checkbox.GetValue()
+        self.opt_manager.options["custom_video_format"] = self.custom_video_format_textctrl.GetValue().strip()
         self.opt_manager.options[
             "embed_thumbnail"
         ] = self.embed_thumbnail_checkbox.GetValue()

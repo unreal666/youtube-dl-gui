@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yt-dlg 1.8.7\n"
 "POT-Creation-Date: 2024-06-30 19:04+1000\n"
-"PO-Revision-Date: 2024-06-30 19:15+1000\n"
+"PO-Revision-Date: 2024-07-25 15:44+1000\n"
 "Last-Translator: unreal666\n"
 "Language-Team: Russian (Russia) (https://www.transifex.com/yt-dlg/"
 "teams/154205/ru_RU/)\n"
@@ -67,7 +67,7 @@ msgstr "Введите URL-адреса ниже"
 
 #: mainframe.py:239
 msgid "Update"
-msgstr "Обновить"
+msgstr "Обновить CLI-бэкэнд"
 
 #: mainframe.py:240
 msgid "Setting"

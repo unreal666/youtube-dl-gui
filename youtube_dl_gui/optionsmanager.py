@@ -65,6 +65,8 @@ class OptionsManager:
 
             custom_video_format (str): Custom video format to download.
 
+            custom_video_format2 (str): Other custom video format to download.
+
             second_video_format (str): Video format to mix with the first
                 one (-f 18+17).
 
@@ -266,6 +268,7 @@ class OptionsManager:
             "video_format": "0",
             "second_video_format": "0",
             "custom_video_format": "",
+            "custom_video_format2": "",
             "to_audio": False,
             "keep_video": False,
             "audio_format": "",

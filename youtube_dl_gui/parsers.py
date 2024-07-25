@@ -279,6 +279,11 @@ class OptionsParser:
                 options_dict["video_format"] = options_dict["custom_video_format"]
             else:
                 options_dict["video_format"] = "0"
+        elif options_dict["video_format"] == "custom2":
+            if options_dict["custom_video_format2"].strip():
+                options_dict["video_format"] = options_dict["custom_video_format2"]
+            else:
+                options_dict["video_format"] = "0"
         elif (
             options_dict["video_format"] != "0"
             and options_dict["second_video_format"] != "0"

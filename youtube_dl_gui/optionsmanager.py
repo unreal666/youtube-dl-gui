@@ -252,6 +252,8 @@ class OptionsManager:
 
             not_add_description (bool): When True description will not be written to file.
 
+            not_embed_infojson (bool): When True infojson will not embed as an attachment to the video file.
+
             disable_update (bool): When True the update process will be disabled.
 
         """
@@ -327,6 +329,7 @@ class OptionsManager:
             "embed_thumbnail": False,
             "add_metadata": False,
             "not_add_description": False,
+            "not_embed_infojson": False,
             "disable_update": False,
             "ffmpeg_location": "",
         }

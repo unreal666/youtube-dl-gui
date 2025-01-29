@@ -113,6 +113,7 @@ class OptionsParser:
                          ["--parse-metadata", ":(?P<meta_synopsis>)",
                           "--parse-metadata", ":(?P<meta_description>)"],
                          False),
+            OptionHolder("not_embed_infojson", "--no-embed-info-json", False),
             OptionHolder("ffmpeg_location", "--ffmpeg-location", ""),
         ]
 

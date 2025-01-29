@@ -606,6 +606,9 @@ class FormatsTab(TabPanel):
         self.not_add_description_checkbox = self.crt_checkbox(
             _("Don't add description to file")
         )
+        self.not_embed_infojson_checkbox = self.crt_checkbox(
+            _("Don't embed the info.json as an attachment")
+        )
 
         self.audio_quality_label = self.crt_statictext(_("Audio quality"))
         self.audio_quality_combobox = self.crt_combobox(
@@ -662,6 +665,7 @@ class FormatsTab(TabPanel):
         post_proc_opts_sizer.Add(self.embed_thumbnail_checkbox, (2, 0))
         post_proc_opts_sizer.Add(self.add_metadata_checkbox, (0, 1))
         post_proc_opts_sizer.Add(self.not_add_description_checkbox, (1, 1))
+        post_proc_opts_sizer.Add(self.not_embed_infojson_checkbox, (2, 1))
         vertical_sizer.Add(post_proc_opts_sizer, 1, wx.EXPAND | wx.TOP | wx.LEFT, border=5)
 
         audio_quality_sizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -699,6 +703,7 @@ class FormatsTab(TabPanel):
         )
         self.add_metadata_checkbox.SetValue(self.opt_manager.options["add_metadata"])
         self.not_add_description_checkbox.SetValue(self.opt_manager.options["not_add_description"])
+        self.not_embed_infojson_checkbox.SetValue(self.opt_manager.options["not_embed_infojson"])
 
     def save_options(self):
         checked_video_formats: list[str] = [
@@ -723,6 +728,7 @@ class FormatsTab(TabPanel):
         ] = self.embed_thumbnail_checkbox.GetValue()
         self.opt_manager.options["add_metadata"] = self.add_metadata_checkbox.GetValue()
         self.opt_manager.options["not_add_description"] = self.not_add_description_checkbox.GetValue()
+        self.opt_manager.options["not_embed_infojson"] = self.not_embed_infojson_checkbox.GetValue()
 
 
 class DownloadsTab(TabPanel):
